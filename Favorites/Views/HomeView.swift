@@ -15,13 +15,15 @@ enum ContentCategory : String, CaseIterable {
 
 struct HomeView: View {
     
+    @EnvironmentObject private var favorites: FavoritesViewModel
     @State private var selectedCategory: ContentCategory = .cities
     @State private var searchText: String = ""
-    @EnvironmentObject private var favorites: FavoritesViewModel
     
     var body: some View {
         NavigationStack {
+            
             VStack {
+                
                 Picker("Categories", selection: $selectedCategory) {
                     ForEach(ContentCategory.allCases, id: \.self) { category in
                         Text(category.rawValue).tag(category)
@@ -30,8 +32,6 @@ struct HomeView: View {
                 .pickerStyle(SegmentedPickerStyle())
                 .padding(.horizontal)
                 
-                // helper function that will show whatever content we have selected
-                // from the desired category
                 selectedContentView()
             }
             .navigationTitle("Browse")
@@ -53,11 +53,11 @@ struct HomeView: View {
         if selectedCategory == .cities {
             CitiesView(searchText: $searchText)
         }
-        if selectedCategory == .hobbies {
+        else if selectedCategory == .hobbies {
             HobbiesView(searchText: $searchText)
         }
-        if selectedCategory == .books {
-            Text("Books")
+        else if selectedCategory == .books {
+            BooksView(searchText: $searchText)
         }
         
         

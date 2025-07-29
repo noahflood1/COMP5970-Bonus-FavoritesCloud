@@ -21,15 +21,14 @@ struct HobbyRowView: View {
                 .font(.body)
             Spacer()
             Button (action: {
-                // #FIXME: Update this to toggle the hobby as a favorite using the generic function
-                print("Tapped for \(hobby.hobbyName)")
+                favorites.toggleFavoriteHobby(hobby: hobby)
             }) {
                 Image(systemName: hobby.isFavorite ? "heart.fill" : "heart")
                     .foregroundStyle(hobby.isFavorite ? .red : .gray)
             }
         }
         .padding(.vertical, 4)
-        // don't need horizontal padding here i think because it is applied to the container that this is in
+        
     }
 }
 

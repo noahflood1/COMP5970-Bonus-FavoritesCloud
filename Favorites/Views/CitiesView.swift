@@ -25,7 +25,6 @@ struct CitiesView: View {
                 // user input. convenient.
                 ForEach(favorites.filteredCities(searchText: searchText)) { city in
                     CityCardView(city: city) // this view is established elswhere and will nicely show a card given content.
-                    
                 }
             }
             .padding()

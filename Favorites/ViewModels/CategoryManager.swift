@@ -28,6 +28,37 @@ class CategoryManager<T: Favoritable> { // any type, T, that conforms to Favorit
         self.storageKey = storageKey
     }
     
+    // fetch the favorited items of this manager's type by id
+    // (like storing data in CSV files, and parsing manually, but easier...)
+    func loadFavoriteIDs(items: [T]) -> [Int] {
+        return UserDefaults.standard.array(forKey: storageKey) as? [Int] ?? []
+    }
+    
+    func initalizeFavorites(items: [T]) -> [T] {
+        let savedIDs = loadFavoriteIDs(items: items)
+        // The items.map { item in ... } line returns a new array where each element is the result of applying the closure to each element of the original items array.
+        return items.map { item in // like a ForEach, but we create mutable copies of all the items
+            // this is what is in the closure
+            var updatedItem = item
+            updatedItem.isFavorite = savedIDs.contains(item.id)
+            return updatedItem
+        }
+        
+    }
+    
+    // return an array of filtered items based on searchText
+    func filteredFavorites(searchText: String, items: [T]) -> [T] {
+        if searchText.isEmpty {
+            return items // just send back all the items if there is no searchText
+        } else {
+            return items.filter {
+                // this $0 stands for the current item in the array (in the above items.filter)
+                // if the item meets the search criteria, it is returned as a part of a new array from items.filter
+                $0.searchableText.lowercased().contains(searchText.lowercased())
+            }
+        }
+    }
+    
     // since we don't want to modify the copy of the first param
     // (we want to modify the original)
     // we use inout
@@ -36,28 +67,28 @@ class CategoryManager<T: Favoritable> { // any type, T, that conforms to Favorit
             items[index].isFavorite.toggle()
         }
         
+        // save a list of the id's of items that are favorited (just the ones with isFavorite == true)
+        let favoriteIDs = items.filter({ $0.isFavorite }).map { $0.id }
+        
         // now we need to save that favorite toggle to the user data
-        saveFavorites()
+        saveFavoriteIDs(ids: favoriteIDs)
     }
     
-    func saveFavorites() {
-        
+    // no need to be called outside of this class; it is called after every single toggle happens.
+    func saveFavoriteIDs(ids: [Int]) {
+        // UserDefaults.standard is a simple way to store small pieces of info acorss app launches
+        UserDefaults.standard.set(ids, forKey: storageKey) // use the instance storageKey for this manager
     }
     
-    func loadFavorites() {
-        
-    }
-    
-    func filteredFavorites(searchText: String, items: inout [T]) -> inout [T] {
-        if searchText.isEmpty {
-            // return all items
-            return items
-        } else {
-            return items.filter {
-                // this $0 stands for the current items in the array (in the above items.filter)
-                // if something meets the criteria, it is returned as a part of a new array from items.filter
-                $0.searchableText().lowercased().contains(searchText.lowercased()) // just lowercase the cityName and searchtext so its case insensitive
-            }
+    func clearFavorites(items: inout [T]) {
+        // i don't know why we edit the param directly, and not just get a copy, edit it, and return it.
+        // maybe because since this is the manager, it keeps handling all the data in here
+        for index in items.indices {
+            items[index].isFavorite = false // unfavorite all items 
         }
+        // delete the saved list from UserDefaults
+        UserDefaults.standard.removeObject(forKey: storageKey)
+    }
+    
 }
 

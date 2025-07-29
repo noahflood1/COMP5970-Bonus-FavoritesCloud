@@ -16,23 +16,25 @@ enum TabSelections {
 struct ContentView: View {
     
     @State private var selection: TabSelections = .home
+    @AppStorage("isDarkMode") private var isDarkMode: Bool = false
     
     var body: some View {
         TabView(selection: $selection) {
             Tab("Home", systemImage: "square.grid.2x2", value: .home) {
                 HomeView()
             }
-            Tab("Favorites", systemImage: "square.grid.2x2", value: .home) {
+            Tab("Favorites", systemImage: "heart.fill", value: .favorites) {
                 FavoritesView()
             }
-            Tab("Settings", systemImage: "square.grid.2x2", value: .home) {
+            Tab("Settings", systemImage: "gear", value: .settings) {
                 SettingsView()
             }
-            
         }
+        .preferredColorScheme(isDarkMode ? .dark : .light)
     }
 }
 
 #Preview {
     ContentView()
+        .environmentObject(FavoritesViewModel())
 }

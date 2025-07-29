@@ -14,14 +14,15 @@ struct HobbiesView: View {
     
     var body: some View {
         LazyVStack { // loads stuff only as needed, efficiently.
-            ForEach(favorites.hobbies) { hobby in // #FIXME: actually filter by searchText
+            ForEach(favorites.filteredHobbies(searchText: searchText)) { hobby in
                 HobbyRowView(hobby: hobby)
             }
         }
+        .padding()
     }
 }
 
 #Preview {
-    HobbyRowView(hobby: HobbyModel(id: 1, hobbyName: "Basketball", hobbyIcon: "🏀", isFavorite: false))
+    HobbiesView(searchText: .constant(""))
         .environmentObject(FavoritesViewModel())
 }
