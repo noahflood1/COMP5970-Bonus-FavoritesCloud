@@ -1,28 +1,38 @@
-![alt text](https://github.com/ajariwala1/Favorites/blob/main/Docs/banner_au.png?raw=true)
-
-
-:stop_sign: `Incomplete` <br/>
-:bangbang: `Skeleton Project`
-
-# Favorites
+# FavoritesCloud
 
 Use a three-tab layout to explore cities, hobbies, and books. On the Home tab, show categories using custom views. Cities appear as cards with background images and text, while hobbies are listed with SF Symbol icons.
-Allow users to favorite items with a heart button. Track favorites locally and view them in the Favorites tab. In the Settings tab, provide options to switch dark/light mode and clear all favorites. <br/>
-This is a skeleton project that includes all assets you need to build the application.
+Allow users to favorite items with a heart button. Track favorites locally and view them in the Favorites tab. In the Settings tab, provide options to switch dark/light mode and clear all favorites.
 
-## Getting Started
+# Additions from Assignment 8 - "Favorites" App
 
-Clone the project and see the lecture videos on Canvas under Module 8 for instructions. <br/>
-See the completed Favorites application here: <br/>
-https://github.com/ajariwala1/Favorites_Completed
+The instructions for this assignment are as follows: 
 
-## What you will learn
+## Instructions
 
-- Use of TabView with multiple tabs to organize app features.
-- Create custom SwiftUI views for cards and list rows.
-- Implement @State and @ObservedObject for reactive UI updates.
-- Manage shared app state using a FavoritesViewModel with the MVVM pattern.
-- Use UserDefaults for persistent local storage of favorite selections.
-- Toggle favorite status on button tap and update the UI accordingly.
-- Implement light/dark mode switching in the app.
-- Clear saved data and reset application state through a Settings view.
+In this bonus assignment, you'll create a new version of the Favorites app that stores data using Firebase Firestore instead of local storage.
+
+Rebuild the Favorites app (with cities, hobbies, and books), but this time:
+
+- Allow users to add or remove their favorite items just like before.
+- Instead of using UserDefaults, store and fetch all favorite data from Firestore.
+- Make sure each user sees only their own favorites — link data to the currently signed-in user using Firebase Authentication.
+- Requirements
+- Use Firestore to store favorite items.
+- Fetch data on app load and display in each section (cities, hobbies, books).
+- Allow users to update their favorites and reflect those changes in Firestore.
+- Refactor your application using MVVM pattern.
+- The application should run for all size classes, including iPads, and for the landscape orientation.
+
+# Notes from Assignment 8
+The parts completed as a part of of assginment 8 include the following:
+
+## Instructions
+Finish the Favorites application by adding the missing features for Books and Favorites display.
+
+## Requirements
+- Use the existing hardcoded books data in your FavoritesViewModel. Display the Books category alongside Cities and Hobbies in HomeView.
+- Show the list of books with their titles and authors. Allow users to favorite and unfavorite books just like other categories.
+- Update the Favorites tab to display all favorited cities, hobbies, and books.
+- Allow removing items directly from the Favorites tab by unfavoriting them, and ensure the list updates immediately.
+- Keep using the shared FavoritesViewModel so favorites stay in sync across all tabs.
+- Make sure your UI remains consistent with the existing app design.
