@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		F98E395B2E36BE9B00B71787 /* Favorites.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Favorites.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F98E395B2E36BE9B00B71787 /* FavoritesCloud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavoritesCloud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		AC4C03742E10A83D00E4BD08 /* Favorites */ = {
+		AC4C03742E10A83D00E4BD08 /* FavoritesCloud */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Favorites;
+			path = FavoritesCloud;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -32,17 +32,17 @@
 		AC4C03692E10A83D00E4BD08 = {
 			isa = PBXGroup;
 			children = (
-				AC4C03742E10A83D00E4BD08 /* Favorites */,
-				F98E395B2E36BE9B00B71787 /* Favorites.app */,
+				AC4C03742E10A83D00E4BD08 /* FavoritesCloud */,
+				F98E395B2E36BE9B00B71787 /* FavoritesCloud.app */,
 			);
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AC4C03712E10A83D00E4BD08 /* Favorites */ = {
+		AC4C03712E10A83D00E4BD08 /* FavoritesCloud */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AC4C037D2E10A83E00E4BD08 /* Build configuration list for PBXNativeTarget "Favorites" */;
+			buildConfigurationList = AC4C037D2E10A83E00E4BD08 /* Build configuration list for PBXNativeTarget "FavoritesCloud" */;
 			buildPhases = (
 				AC4C036E2E10A83D00E4BD08 /* Sources */,
 				AC4C036F2E10A83D00E4BD08 /* Frameworks */,
@@ -53,13 +53,13 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				AC4C03742E10A83D00E4BD08 /* Favorites */,
+				AC4C03742E10A83D00E4BD08 /* FavoritesCloud */,
 			);
-			name = Favorites;
+			name = FavoritesCloud;
 			packageProductDependencies = (
 			);
 			productName = Favorites;
-			productReference = F98E395B2E36BE9B00B71787 /* Favorites.app */;
+			productReference = F98E395B2E36BE9B00B71787 /* FavoritesCloud.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -77,7 +77,7 @@
 					};
 				};
 			};
-			buildConfigurationList = AC4C036D2E10A83D00E4BD08 /* Build configuration list for PBXProject "Favorites" */;
+			buildConfigurationList = AC4C036D2E10A83D00E4BD08 /* Build configuration list for PBXProject "FavoritesCloud" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -91,7 +91,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AC4C03712E10A83D00E4BD08 /* Favorites */,
+				AC4C03712E10A83D00E4BD08 /* FavoritesCloud */,
 			);
 		};
 /* End PBXProject section */
@@ -299,7 +299,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AC4C036D2E10A83D00E4BD08 /* Build configuration list for PBXProject "Favorites" */ = {
+		AC4C036D2E10A83D00E4BD08 /* Build configuration list for PBXProject "FavoritesCloud" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AC4C037B2E10A83E00E4BD08 /* Debug */,
@@ -308,7 +308,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AC4C037D2E10A83E00E4BD08 /* Build configuration list for PBXNativeTarget "Favorites" */ = {
+		AC4C037D2E10A83E00E4BD08 /* Build configuration list for PBXNativeTarget "FavoritesCloud" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AC4C037E2E10A83E00E4BD08 /* Debug */,
