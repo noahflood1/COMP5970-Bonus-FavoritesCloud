@@ -13,12 +13,14 @@ struct BooksView: View {
     @Binding var searchText: String
     
     var body: some View {
-        LazyVStack {
-            ForEach(favorites.filteredBooks(searchText: searchText)) { book in
-                BookRowView(book: book)
+        ScrollView {
+            LazyVStack {
+                ForEach(favorites.filteredBooks(searchText: searchText)) { book in
+                    BookRowView(book: book)
+                }
             }
+            .padding()
         }
-        .padding()
     }
 }
 

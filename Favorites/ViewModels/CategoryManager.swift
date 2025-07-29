@@ -59,6 +59,13 @@ class CategoryManager<T: Favoritable> { // any type, T, that conforms to Favorit
         }
     }
     
+    // returns a new array of items that only includes the items whose "isFavorite" toggle is true
+    func getFavorites(searchText: String, items: [T]) -> [T] {
+        return filteredFavorites(searchText: searchText, items: items).filter {
+            $0.isFavorite
+        }
+    }
+    
     // since we don't want to modify the copy of the first param
     // (we want to modify the original)
     // we use inout

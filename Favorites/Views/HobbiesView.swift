@@ -13,13 +13,16 @@ struct HobbiesView: View {
     @Binding var searchText: String // binding means it changes
     
     var body: some View {
-        LazyVStack { // loads stuff only as needed, efficiently.
-            ForEach(favorites.filteredHobbies(searchText: searchText)) { hobby in
-                HobbyRowView(hobby: hobby)
+        ScrollView {
+            LazyVStack { // loads stuff only as needed, efficiently.
+                ForEach(favorites.filteredHobbies(searchText: searchText)) { hobby in
+                    HobbyRowView(hobby: hobby)
+                }
             }
+            .padding()
         }
-        .padding()
     }
+
 }
 
 #Preview {

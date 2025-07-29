@@ -21,7 +21,6 @@ struct HomeView: View {
     
     var body: some View {
         NavigationStack {
-            
             VStack {
                 
                 Picker("Categories", selection: $selectedCategory) {

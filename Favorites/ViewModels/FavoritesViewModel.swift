@@ -41,6 +41,10 @@ class FavoritesViewModel : ObservableObject {
         return cityManager.filteredFavorites(searchText: searchText, items: cities)
     }
     
+    func favoriteCities(searchText: String) -> [CityModel] { // it might have paid off to make a Filterable protocol or something
+        return cityManager.getFavorites(searchText: searchText, items: cities)
+    }
+    
     // HOBBY CATEGORY MANAGER CALLS -------------------------------------------------
     
     func toggleFavoriteHobby(hobby: HobbyModel) {
@@ -51,6 +55,10 @@ class FavoritesViewModel : ObservableObject {
         return hobbyManager.filteredFavorites(searchText: searchText, items: hobbies)
     }
     
+    func favoriteHobbies(searchText: String) -> [HobbyModel] {
+        return hobbyManager.getFavorites(searchText: searchText, items: hobbies)
+    }
+    
     // BOOK CATEGORY MANAGER CALLS -------------------------------------------------
     
     func toggleFavoriteBook(book: BookModel) {
@@ -59,6 +67,10 @@ class FavoritesViewModel : ObservableObject {
     
     func filteredBooks(searchText: String) -> [BookModel] {
         return bookManager.filteredFavorites(searchText: searchText, items: books)
+    }
+    
+    func favoriteBooks(searchText: String) -> [BookModel] {
+        return bookManager.getFavorites(searchText: searchText, items: books)
     }
      
 }
