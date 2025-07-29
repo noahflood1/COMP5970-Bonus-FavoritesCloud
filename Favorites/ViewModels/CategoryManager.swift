@@ -46,23 +46,30 @@ class CategoryManager<T: Favoritable> { // any type, T, that conforms to Favorit
         
     }
     
-    // return an array of filtered items based on searchText
-    func filteredFavorites(searchText: String, items: [T]) -> [T] {
-        if searchText.isEmpty {
-            return items // just send back all the items if there is no searchText
-        } else {
-            return items.filter {
-                // this $0 stands for the current item in the array (in the above items.filter)
-                // if the item meets the search criteria, it is returned as a part of a new array from items.filter
-                $0.searchableText.lowercased().contains(searchText.lowercased())
-            }
-        }
-    }
+//    // old version
+//    // return an array of filtered items based on searchText AND ANOTHER VARIABLE
+//    func filteredFavorites_deprecated(searchText: String, showFavoritesOnly: Bool, items: [T]) -> [T] {
+//        if searchText.isEmpty {
+//            return items // just send back all the items if there is no searchText
+//        } else {
+//            return items.filter {
+//                // this $0 stands for the current item in the array (in the above items.filter)
+//                // if the item meets the search criteria, it is returned as a part of a new array from items.filter
+//                $0.searchableText.lowercased().contains(searchText.lowercased())
+//            }
+//        }
+//    }
     
-    // returns a new array of items that only includes the items whose "isFavorite" toggle is true
-    func getFavorites(searchText: String, items: [T]) -> [T] {
-        return filteredFavorites(searchText: searchText, items: items).filter {
-            $0.isFavorite
+    func filteredFavorites(searchText: String, showFavoritesOnly: Bool, items: [T]) -> [T] {
+        return items.filter { // will return items that satisfy both conditions
+            
+            // short circuits if we ARE NOT showing only favorites, thus doesn't filter anything
+            // but if we ARE showing only favorites, then it returns items where isFavorite == true
+            (!showFavoritesOnly || $0.isFavorite) &&
+            
+            // short circuits if the text is empty, thus not filtering anything
+            // but if the searchText IS NOT empty, filters by that searchtext case insensitively
+            (searchText.isEmpty || $0.searchableText.localizedCaseInsensitiveContains(searchText))
         }
     }
     

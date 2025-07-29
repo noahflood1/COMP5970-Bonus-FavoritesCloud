@@ -14,6 +14,11 @@ struct CitiesView: View {
     @EnvironmentObject private var favorites : FavoritesViewModel
     @Binding var searchText: String // by making it @Binding, this means that it changes
     
+    // FOR FAVORITES TAB
+    // will be passed when the view is instantiated
+    // so that we can reuse this view for when we need to filter by favorites AND searchText, or just searchText
+    var showFavoritesOnly : Bool
+    
     var body: some View {
         ScrollView {
             LazyVStack { // creates a vert-scrolling list that loads stuff efficiently
@@ -23,7 +28,9 @@ struct CitiesView: View {
                 // we're going to use a function called filteredCities() which displays the filtered
                 // cities based on an active State variable that is changing based on
                 // user input. convenient.
-                ForEach(favorites.filteredCities(searchText: searchText)) { city in
+                ForEach(favorites.filteredCities(
+                    searchText: searchText,
+                    showFavoritesOnly: showFavoritesOnly)) { city in
                     CityCardView(city: city) // this view is established elswhere and will nicely show a card given content.
                 }
             }
@@ -34,7 +41,7 @@ struct CitiesView: View {
 
 
 #Preview {
-    CitiesView(searchText: .constant(""))
+    CitiesView(searchText: .constant(""), showFavoritesOnly: false)
         .environmentObject(FavoritesViewModel()) // example view model
 }
 

@@ -19,7 +19,7 @@ class FavoritesViewModel : ObservableObject {
     private let bookManager = CategoryManager<BookModel>(storageKey: "favoriteBooks")
     
     init () {
-        // upon this vm being initalized (on app startup, coming from the App @main)
+        // upon this viewModel being initalized (on app startup, coming from the App @main)
         cities = cityManager.initalizeFavorites(items: sampleCities)
         hobbies = hobbyManager.initalizeFavorites(items: sampleHobbies)
         books = bookManager.initalizeFavorites(items: sampleBooks)
@@ -37,12 +37,11 @@ class FavoritesViewModel : ObservableObject {
         cityManager.toggleFavorite(items: &cities, targetItem: city) // ampersand lets us edit directly
     }
     
-    func filteredCities(searchText: String) -> [CityModel] {
-        return cityManager.filteredFavorites(searchText: searchText, items: cities)
-    }
-    
-    func favoriteCities(searchText: String) -> [CityModel] { // it might have paid off to make a Filterable protocol or something
-        return cityManager.getFavorites(searchText: searchText, items: cities)
+    func filteredCities(searchText: String, showFavoritesOnly: Bool) -> [CityModel] {
+        return cityManager.filteredFavorites(
+            searchText: searchText,
+            showFavoritesOnly: showFavoritesOnly,
+            items: cities)
     }
     
     // HOBBY CATEGORY MANAGER CALLS -------------------------------------------------
@@ -51,12 +50,11 @@ class FavoritesViewModel : ObservableObject {
         hobbyManager.toggleFavorite(items: &hobbies, targetItem: hobby)
     }
     
-    func filteredHobbies(searchText: String) -> [HobbyModel] {
-        return hobbyManager.filteredFavorites(searchText: searchText, items: hobbies)
-    }
-    
-    func favoriteHobbies(searchText: String) -> [HobbyModel] {
-        return hobbyManager.getFavorites(searchText: searchText, items: hobbies)
+    func filteredHobbies(searchText: String, showFavoritesOnly: Bool) -> [HobbyModel] {
+        return hobbyManager.filteredFavorites(
+            searchText: searchText,
+            showFavoritesOnly: showFavoritesOnly,
+            items: hobbies)
     }
     
     // BOOK CATEGORY MANAGER CALLS -------------------------------------------------
@@ -65,12 +63,11 @@ class FavoritesViewModel : ObservableObject {
         bookManager.toggleFavorite(items: &books, targetItem: book)
     }
     
-    func filteredBooks(searchText: String) -> [BookModel] {
-        return bookManager.filteredFavorites(searchText: searchText, items: books)
-    }
-    
-    func favoriteBooks(searchText: String) -> [BookModel] {
-        return bookManager.getFavorites(searchText: searchText, items: books)
+    func filteredBooks(searchText: String, showFavoritesOnly: Bool) -> [BookModel] {
+        return bookManager.filteredFavorites(
+            searchText: searchText,
+            showFavoritesOnly: showFavoritesOnly,
+            items: books)
     }
      
 }

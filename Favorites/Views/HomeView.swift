@@ -50,13 +50,13 @@ struct HomeView: View {
         // this lets us return all different types of View, which is good for this case
         
         if selectedCategory == .cities {
-            CitiesView(searchText: $searchText)
+            CitiesView(searchText: $searchText, showFavoritesOnly: false)
         }
         else if selectedCategory == .hobbies {
-            HobbiesView(searchText: $searchText)
+            HobbiesView(searchText: $searchText, showFavoritesOnly: false)
         }
         else if selectedCategory == .books {
-            BooksView(searchText: $searchText)
+            BooksView(searchText: $searchText, showFavoritesOnly: false)
         }
         
         

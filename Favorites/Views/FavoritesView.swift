@@ -21,9 +21,7 @@ struct FavoritesView: View {
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.top, 10)) {
                                 
-                            ForEach(favorites.favoriteCities(searchText: searchText)) { city in
-                                CityCardView(city: city)
-                            }
+                            CitiesView(searchText: $searchText, showFavoritesOnly: true)
                         }
                         
                         Section(header: Text("Favorite Hobbies")
@@ -31,9 +29,7 @@ struct FavoritesView: View {
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.top, 10)) {
                                 
-                            ForEach(favorites.favoriteHobbies(searchText: searchText)) { hobby in
-                                HobbyRowView(hobby: hobby)
-                            }
+                            HobbiesView(searchText: $searchText, showFavoritesOnly: true)
                         }
                         
                         Section(header: Text("Favorite Books")
@@ -41,12 +37,9 @@ struct FavoritesView: View {
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.top, 10)) {
                                 
-                            ForEach(favorites.favoriteBooks(searchText: searchText)) { book in
-                                BookRowView(book: book)
-                            }
+                            BooksView(searchText: $searchText, showFavoritesOnly: true)
                         }
                     }
-                    .padding()
                 }
             }
             .navigationTitle("Favorites")
