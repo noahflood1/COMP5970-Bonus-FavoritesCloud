@@ -93,6 +93,7 @@
 				F9F1637B2E3ACF7000ABBE80 /* ViewModels */,
 				F9F163852E3ACF7000ABBE80 /* Views */,
 				F9F1636F2E3ACF6500ABBE80 /* AppDelegate.swift */,
+				F9F1639E2E3AD73D00ABBE80 /* MainView.swift */,
 				F9F163712E3ACF6500ABBE80 /* FavoritesApp.swift */,
 				F9F163752E3ACF7000ABBE80 /* Assets.xcassets */,
 				F9F163942E3AD0D900ABBE80 /* GoogleService-Info.plist */,
@@ -121,7 +122,6 @@
 			isa = PBXGroup;
 			children = (
 				F9F163702E3ACF6500ABBE80 /* ContentView.swift */,
-				F9F1639E2E3AD73D00ABBE80 /* MainView.swift */,
 				F9F1637C2E3ACF7000ABBE80 /* BookRowView.swift */,
 				F9F1637D2E3ACF7000ABBE80 /* BooksView.swift */,
 				F9F1637E2E3ACF7000ABBE80 /* CitiesView.swift */,

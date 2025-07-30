@@ -10,6 +10,7 @@ import SwiftUI
 struct MainView: View {
     
     @Environment(AuthController.self) private var authController
+    @AppStorage("isDarkMode") private var isDarkMode: Bool = false
     
     var body: some View {
         Group {
@@ -25,6 +26,7 @@ struct MainView: View {
         .task {
             await authController.startListeningToAuthState()
         }
+        .preferredColorScheme(isDarkMode ? .dark : .light)
     }
 }
 

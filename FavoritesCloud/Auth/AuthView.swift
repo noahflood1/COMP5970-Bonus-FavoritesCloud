@@ -8,31 +8,48 @@
 //
 
 import SwiftUI
-import FirebaseCore
 import GoogleSignIn
 import GoogleSignInSwift
-import FirebaseAuth
+// the Firebase functionality is on the authController side
+// import FirebaseCore
+// import FirebaseAuth
 
 struct AuthView: View {
     
     @Environment(AuthController.self) private var authController
+    @AppStorage("isDarkMode") private var isDarkMode: Bool = false // might not be working
     
     var body: some View {
-        VStack() {
-            Spacer()
-            
-            Text("Welcome to") + Text("FavoritesCloud") // might not be the best
-                .font(.largeTitle)
-                .fontWeight(.bold)
-            
-            GoogleSignInButton(scheme: .dark, style: .standard, state: .normal) {
-                signIn()
+        GeometryReader { geometry in
+            VStack {
+                Spacer().frame(height: geometry.size.height * 0.2) // top padding
+
+                (
+                    Text("Welcome to Favorites")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                    +
+                    Text("Cloud")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .foregroundColor(.blue)
+                )
+                .multilineTextAlignment(.center)
+
+                Spacer() // takes up the middle space
+
+                GoogleSignInButton(scheme: .dark, style: .standard, state: .normal) {
+                    signIn()
+                }
+                .frame(width: geometry.size.width * 0.6, height: 50)
+                .clipShape(RoundedRectangle(cornerRadius: 8))
+
+                Spacer().frame(height: geometry.size.height * 0.05) // bottom margin
             }
-            // just ralized why some params are dot notation like this. i think its because it's inherently from self
-            
-            
-            Spacer()
+            .frame(width: geometry.size.width, height: geometry.size.height)
         }
+        .preferredColorScheme(.dark)
+        //.preferredColorScheme(isDarkMode ? .dark : .light)
         .padding()
     }
     

@@ -16,10 +16,8 @@ enum TabSelections {
 struct ContentView: View {
     
     @State private var selection: TabSelections = .home
-    @AppStorage("isDarkMode") private var isDarkMode: Bool = false
     
     var body: some View {
-        
         TabView(selection: $selection) {
             Tab("Home", systemImage: "square.grid.2x2", value: .home) {
                 HomeView()
@@ -31,7 +29,6 @@ struct ContentView: View {
                 SettingsView()
             }
         }
-        .preferredColorScheme(isDarkMode ? .dark : .light)
     }
 }
 
