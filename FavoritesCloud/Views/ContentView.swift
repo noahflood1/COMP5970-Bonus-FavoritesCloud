@@ -19,6 +19,7 @@ struct ContentView: View {
     @AppStorage("isDarkMode") private var isDarkMode: Bool = false
     
     var body: some View {
+        
         TabView(selection: $selection) {
             Tab("Home", systemImage: "square.grid.2x2", value: .home) {
                 HomeView()

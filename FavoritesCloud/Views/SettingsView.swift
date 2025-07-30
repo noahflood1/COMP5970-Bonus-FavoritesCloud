@@ -12,6 +12,7 @@ struct SettingsView: View {
     @AppStorage("isDarkMode") private var isDarkMode: Bool = false
     @EnvironmentObject private var favoritesViewModel: FavoritesViewModel
     @State private var showResetAlert: Bool = false
+    @Environment(AuthController.self) private var authController
     
     var body: some View {
         NavigationStack {
@@ -36,8 +37,22 @@ struct SettingsView: View {
                 } message: {
                     Text("All favorites will be deleted.")
                 }
+                Section {
+                    Button("Sign Out") {
+                        signOut()
+                    }
+                }
             }
             .navigationTitle("Settings")
+        }
+    }
+    
+    // access to signing out in this view, which will update the authentication status
+    func signOut() {
+        do {
+            try authController.signOut()
+        } catch {
+            print(error.localizedDescription)
         }
     }
 }

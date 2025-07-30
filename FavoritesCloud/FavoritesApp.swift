@@ -15,10 +15,13 @@ struct FavoritesApp: App {
     
     @StateObject private var favoritesViewModel = FavoritesViewModel()
     
+    @StateObject private var authController = AuthController()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
                 .environmentObject(favoritesViewModel)
+                .environmentObject(authController)
         }
     }
 }
