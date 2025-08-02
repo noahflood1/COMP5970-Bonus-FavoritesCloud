@@ -11,6 +11,7 @@
 		F93B24052E3BC9B8004AE6BF /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93B24022E3BC9B8004AE6BF /* AuthView.swift */; };
 		F93B24072E3BCCBD004AE6BF /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93B24062E3BCCBD004AE6BF /* DataManager.swift */; };
 		F93B24092E3BD30D004AE6BF /* FirestoreReferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93B24082E3BD30D004AE6BF /* FirestoreReferenceManager.swift */; };
+		F93B24342E3DF189004AE6BF /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F93B24332E3DF189004AE6BF /* Launch Screen.storyboard */; };
 		F9B3C2512E3A872900A1F381 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F9B3C2502E3A872900A1F381 /* FirebaseAuth */; };
 		F9B3C2532E3A872900A1F381 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = F9B3C2522E3A872900A1F381 /* FirebaseDatabase */; };
 		F9B3C2552E3A872900A1F381 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F9B3C2542E3A872900A1F381 /* FirebaseFirestore */; };
@@ -44,6 +45,7 @@
 		F93B24022E3BC9B8004AE6BF /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		F93B24062E3BCCBD004AE6BF /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		F93B24082E3BD30D004AE6BF /* FirestoreReferenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreReferenceManager.swift; sourceTree = "<group>"; };
+		F93B24332E3DF189004AE6BF /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		F98E395B2E36BE9B00B71787 /* FavoritesCloud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavoritesCloud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9F1636F2E3ACF6500ABBE80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9F163702E3ACF6500ABBE80 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 		AC4C03692E10A83D00E4BD08 = {
 			isa = PBXGroup;
 			children = (
+				F93B24332E3DF189004AE6BF /* Launch Screen.storyboard */,
 				F9F163962E3AD24300ABBE80 /* FavoritesCloud-Info.plist */,
 				F98E395B2E36BE9B00B71787 /* FavoritesCloud.app */,
 				F9F163782E3ACF7000ABBE80 /* Model */,
@@ -213,6 +216,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F93B24342E3DF189004AE6BF /* Launch Screen.storyboard in Resources */,
 				F9F163862E3ACF7000ABBE80 /* Assets.xcassets in Resources */,
 				F9F163952E3AD0D900ABBE80 /* GoogleService-Info.plist in Resources */,
 			);
@@ -378,7 +382,7 @@
 		AC4C037E2E10A83E00E4BD08 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon 3";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -410,7 +414,7 @@
 		AC4C037F2E10A83E00E4BD08 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon 3";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
