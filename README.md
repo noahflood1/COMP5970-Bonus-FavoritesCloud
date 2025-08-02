@@ -4,6 +4,8 @@ Educational project to learn Swift and MVVM design.
 
 Track your favorite cities, books, and hobbies and store that informaton in the cloud.
 
+Stores user data locally for quick loading, and does a cloud check at every change and upon app load, with instant updates to the UI.
+
 # Assignment requirements
 
 ## Bonus Assignment requirements:
