@@ -21,13 +21,12 @@ class AuthController : ObservableObject{
         Auth.auth().addStateDidChangeListener { _, user in
             self.authState = user != nil ? .authenticated : .notAuthenticated
         }
-        
     }
     
     @MainActor
     func signIn() async throws {
-        guard let rootViewController = UIApplication.shared.firstKeyWindow?.rootViewController else { return } // #FIXME silent fail #FIXME
-        guard let clientID = FirebaseApp.app()?.options.clientID else { return } // #FIXME silent fail
+        guard let rootViewController = UIApplication.shared.firstKeyWindow?.rootViewController else { return }
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return } 
         let configuration = GIDConfiguration(clientID: clientID)
         GIDSignIn.sharedInstance.configuration = configuration
         let result = try await GIDSignIn.sharedInstance.signIn(withPresenting: rootViewController)

@@ -31,6 +31,7 @@ struct HomeView: View {
                 .pickerStyle(SegmentedPickerStyle())
                 .padding(.horizontal)
                 
+                // see below
                 selectedContentView()
             }
             .navigationTitle("Browse")

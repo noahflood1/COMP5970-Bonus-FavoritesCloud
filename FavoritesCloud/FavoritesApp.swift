@@ -17,11 +17,16 @@ struct FavoritesApp: App {
     
     @StateObject private var authController = AuthController()
     
+    // don't need this, because FavoritesViewController is the sole owner
+    // of cities, hobbies, and books, and is the only handler of the DataManager() instance.
+    //@StateObject private var dataManager = DataManager()
+    
     var body: some Scene {
         WindowGroup {
             MainView()
                 .environmentObject(favoritesViewModel)
                 .environmentObject(authController)
+                //.environmentObject(dataManager)
         }
     }
 }

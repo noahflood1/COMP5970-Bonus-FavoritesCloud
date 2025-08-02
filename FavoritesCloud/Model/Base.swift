@@ -7,7 +7,7 @@
 
 import Foundation
 
-let sampleCities: [CityModel] = [
+let baseCities: [CityModel] = [
 
     CityModel(id : 1, cityName: "Cape Town", cityImage: "capetown", isFavorite: false),
     CityModel(id : 2, cityName: "Copenhagen", cityImage: "copenhagen", isFavorite: false),
@@ -20,7 +20,7 @@ let sampleCities: [CityModel] = [
     CityModel(id : 9, cityName: "Los Angeles", cityImage: "losangeles", isFavorite: false)
 ]
 
-let sampleHobbies: [HobbyModel] = [
+let baseHobbies: [HobbyModel] = [
     HobbyModel(id : 1, hobbyName: "Painting", hobbyIcon: "🎨", isFavorite: false),
     HobbyModel(id : 2, hobbyName: "Photography", hobbyIcon: "📷", isFavorite: false),
     HobbyModel(id : 3, hobbyName: "Guitar", hobbyIcon: "🎸", isFavorite: false),
@@ -36,7 +36,7 @@ let sampleHobbies: [HobbyModel] = [
     HobbyModel(id : 13, hobbyName: "Basketball", hobbyIcon: "🏀", isFavorite: false)
 ]
 
-let sampleBooks: [BookModel] = [
+let baseBooks: [BookModel] = [
     BookModel(id : 1, bookTitle: "To Kill a Mockingbird", bookAuthor: "Harper Lee", isFavorite: false),
     BookModel(id : 2, bookTitle: "1984", bookAuthor: "George Orwell", isFavorite: false),
     BookModel(id : 3, bookTitle: "Pride and Prejudice", bookAuthor: "Jane Austen", isFavorite: false),

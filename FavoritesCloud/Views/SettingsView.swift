@@ -9,6 +9,8 @@ import SwiftUI
 
 struct SettingsView: View {
     
+    @EnvironmentObject private var dataManager: DataManager
+    
     @AppStorage("isDarkMode") private var isDarkMode: Bool = false
     @EnvironmentObject private var favoritesViewModel: FavoritesViewModel
     @State private var showResetAlert: Bool = false
@@ -60,4 +62,5 @@ struct SettingsView: View {
 #Preview {
     SettingsView()
         .environmentObject(FavoritesViewModel())
+        .environmentObject(DataManager())
 }

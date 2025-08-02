@@ -14,6 +14,10 @@ import GoogleSignInSwift
 // import FirebaseCore
 // import FirebaseAuth
 
+enum AuthState {
+    case undefined, authenticated, notAuthenticated
+}
+
 struct AuthView: View {
     
     @Environment(AuthController.self) private var authController
